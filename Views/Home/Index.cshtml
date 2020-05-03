@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ToonClient31.Models.Toon>
+
+@{
+    ViewBag.Title = "Toons";
+}
+
+<h2>@ViewBag.Title</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Picture</th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in Model)
+            {
+                string url = ViewBag.BaseUrl + item.pictureUrl;
+
+                <tr>
+                    <td>@item.name</td>
+                    <td>
+                        <img src="@url" alt="@item.name" style="width:100px"
+                             class="img-thumbnail" />
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
